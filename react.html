@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+
+    <script type="text/javascript">
+        class LoginBtn extends React.Component{
+            constructor(props){
+                super(props)
+
+                //상태 -> 변경되는값
+                this.state = {
+                    isLogin:false,
+                }
+            }
+
+            render(){
+                return(
+                    React.createElement('button',{onClick:()=>{ this.setState({isLogin:!this.state.isLogin}) }},this.state.isLogin ? '로그아웃' : '로그인')        
+                );
+            }
+        }
+
+        //인자값을 두가지를 받습니다
+        // 첫번째 인자값은 내가넣을 내용(객체를 넣어줘야한다.)  이벤트를 넣을때는 ..첫번째는 소문자.. 두번째 첫글자만 대문자  ex) onClick 
+        // 두번째 인자값은 내가넣을 위치
+        // 3번째는 내용
+        ReactDOM.render(
+            React.createElement(LoginBtn),
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>
+
+

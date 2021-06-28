@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./react6.css">
+</head>
+<body>
+    
+    <div id="root">
+        
+    </div>
+
+    <script type="text/babel">
+        
+        class Top extends React.Component{
+            render(){
+                return(
+                    <li className="comment-form">
+                            <form>
+                                <h4>댓글쓰기 <span>(3)</span></h4>
+                                <span className="ps_box">
+                                    <input type="text" placeholder="댓글내용을 입력해주세요." className="int"/>
+                                </span>
+                                <input type="submit" value="등록" className="btn"/>
+                            </form>
+                        </li>
+                )
+            }
+        }
+        
+        class ComponentForm extends React.Component{
+            render(){
+                return(
+                    <li>
+                        <ul className="comment-row">
+                            <li className="comment-id">web777</li>
+                            <li className="comment-content">안녕하세요</li>
+                            <li className="comment-date">2020</li>
+                        </ul>
+                    </li>
+                )
+            }
+        }
+
+        class CommentApp extends React.Component{
+            render(){
+                return(
+                    <ul className="comment">
+                        <Top />
+                        <ComponentForm />
+                        <ComponentForm />
+                        <ComponentForm />
+                    </ul>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <CommentApp />,
+            document.querySelector('#root')
+        )    
+    </script>
+
+<!-- 1.대문자 소문자 진짜 조심하기 아예 html에 나타나지를 않는다
+    2. css연결할때 react에서 class 와 혼동될수 있으므로 css의 class는 className으로 사용한다. -->
+
+</body>
+</html>
