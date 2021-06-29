@@ -22,15 +22,20 @@
                     currentTime:new Date().toLocaleTimeString(),
                 }
             }
-            render(){
-                //code를 작성할수있다. 왜냐하면 render(){} 이거 자체가 함수이기 때문에 안에서 변수선언 가능 ㅇㅋ?
-                setInterval(()=>{
+            
+            
+            componentDidMount(){     /*생명주기 컨트롤할수 있게됨... 리소스 많이 안잡아 먹도록 따로 빼줬다*/
+                setInterval(()=>{     /*setState함수 자체가 어떤 상태가 바뀌면 바꿀꺼다... 라는 함수인데 그 setState함수가 render(){}함수 안에 있게되면 상태가 바뀔때마다 render하고 이게 재귀적으로 돌아가게되서 1초에 엄청나게 많이 render되게 된다. 따라서 setState함수를 밖으로 빼줬다.*/
                     this.setState({currentTime:new Date().toLocaleTimeString()})
                 },1000)
+            }
+            
+            render(){
+                //code를 작성할수있다. 왜냐하면 render(){} 이거 자체가 함수이기 때문에 안에서 변수선언 가능 ㅇㅋ?
                 return(
                     <div>
                         <h1>Hello World!</h1>
-                        <h2>It is yes or no re last {this.state.currentTime}</h2>    
+                        <h2>It is {this.state.currentTime}</h2>    
                     </div>
                 )
             }
